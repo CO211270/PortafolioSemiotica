@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio Semiótica</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Share Tech Mono', monospace;
+      background-color: #0d0d0d;
+      color: #00ffcc;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .sidebar {
+      width: 100px;
+      background-color: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 20px;
+      gap: 10px;
+      border-right: 2px solid #00ffcc;
+    }
+
+    .folder {
+      width: 60px;
+      height: 50px;
+      background: url('https://i.imgur.com/IzwN7lh.png') no-repeat center/contain;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .folder:hover {
+      transform: scale(1.1);
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      position: relative;
+    }
+
+    .window {
+      background-color: #1a1a1a;
+      border: 2px solid #00ffcc;
+      padding: 20px;
+      width: 70%;
+      margin: 0 auto;
+      margin-top: 50px;
+      display: none;
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .window h2 {
+      color: #00ffcc;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="folder" onclick="openFolder('racional')" title="Racional"></div>
+    <div class="folder" title="Próximamente..."></div>
+    <div class="folder" title="Próximamente..."></div>
+    <div class="folder" title="Próximamente..."></div>
+    <div class="folder" title="Próximamente..."></div>
+    <div class="folder" title="Próximamente..."></div>
+    <div class="folder" title="Próximamente..."></div>
+  </div>
+
+  <div class="main-content">
+    <div class="window" id="racional">
+      <h2>Racional del Portafolio</h2>
+      <p>
+        Este portafolio ha sido diseñado con una estética retrofuturista para representar la unión entre análisis semiótico y creatividad visual. Cada sección refleja el proceso de aprendizaje y los conceptos trabajados durante el curso.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function openFolder(id) {
+      document.querySelectorAll('.window').forEach(w => w.style.display = 'none');
+      const win = document.getElementById(id);
+      if (win) win.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
